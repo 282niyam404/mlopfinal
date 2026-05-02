@@ -1,0 +1,8 @@
+mlflow==2.12.1
+yfinance==0.2.37
+pandas==2.2.1
+numpy==1.26.4
+hmmlearn==0.3.2
+scikit-learn==1.4.1
+torch==2.2.1
+dvc==3.48.4
