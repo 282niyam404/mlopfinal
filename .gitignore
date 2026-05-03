@@ -1,15 +1,36 @@
-# Virtual environments
-myenv/
+# Virtual Environment
+myvenv/
 venv/
 env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
 # MLflow
 mlruns/
 mlflow.db
+mlartifacts/
 
-# Python
-__pycache__/
-*.pyc
+# DVC - Don't track actual data, only .dvc files
+/data
+/src/data
+/src/models
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
 
 # OS
 .DS_Store
+Thumbs.db
+
+# Environment variables
+.env
