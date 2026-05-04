@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlop-model-deployment
+  labels:
+    app: mlop-model
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mlop-model
+  template:
+    metadata:
+      labels:
+        app: mlop-model
+    spec:
+      containers:
+      - name: mlop-model
+        image: mlop-model:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+
+        env:
+        - name: MODEL_PATH
+          value: "src/models/meta.pkl"
+
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5

@@ -3,6 +3,9 @@ yfinance==0.2.37
 pandas==2.2.1
 numpy==1.26.4
 hmmlearn==0.3.2
-scikit-learn==1.4.1
+scikit-learn==1.4.2
 torch==2.2.1
 dvc==3.48.4
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
